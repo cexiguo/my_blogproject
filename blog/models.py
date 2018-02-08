@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils.html import strip_tags
+import markdown
 # Create your models here.
 
 
@@ -33,11 +35,12 @@ class Post(models.Model):
     author = models.ForeignKey(User)
     views = models.PositiveIntegerField(default=0)
 
-    def save(self,*args,**kwargs):
+    def save(self, *args, **kwargs):
         if not self.excerpt:
-            md = markdown.Markdown(extensions=['markdown.extensions.extra','markdown.extensions.codehilite',])
+            md = markdown.Markdown(
+                extensions=['markdown.extensions.extra', 'markdown.extensions.codehilite', ])
             self.excerpt = strip_tags(md.convert(self.body))[:54]
-        super(Post,self).save(*args,**kwargs)
+        super(Post, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
