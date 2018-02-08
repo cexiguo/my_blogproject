@@ -35,7 +35,7 @@ class Post(models.Model):
 
     def save(self,*args,**kwargs):
         if not self.excerpt:
-            md = markdown.Markdown(extensions=['markdown.Markdown.extra','markdown.extensions.codehilite',])
+            md = markdown.Markdown(extensions=['markdown.extensions.extra','markdown.extensions.codehilite',])
             self.excerpt = strip_tags(md.convert(self.body))[:54]
         super(Post,self).save(*args,**kwargs)
 
