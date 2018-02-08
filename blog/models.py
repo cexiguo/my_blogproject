@@ -33,6 +33,12 @@ class Post(models.Model):
     author = models.ForeignKey(User)
     views = models.PositiveIntegerField(default=0)
 
+    def save(self,*args,**kwargs):
+        if not sefl.excerpt:
+            md = markdown.Markdown(extensions=['markdown.Markdown.extra','markdown.extensions.codehilite',])
+            self.excerpt = strip_tags(md.convert(self.body))[:54]
+        super(Post,self).save(*args,**kwargs)
+
     def __str__(self):
         return self.title
 
