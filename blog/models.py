@@ -37,8 +37,10 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):#显示阅读量
         if not self.excerpt:
-            md = markdown.Markdown(
-                extensions=['markdown.extensions.extra', 'markdown.extensions.codehilite', ])
+            md = markdown.Markdown(extensions=[
+                                   'markdown.extensions.extra',
+                                   'markdown.extensions.codehilite',
+                 ])
             self.excerpt = strip_tags(md.convert(self.body))[:54]#选择前54个字符
         super(Post, self).save(*args, **kwargs)
 
