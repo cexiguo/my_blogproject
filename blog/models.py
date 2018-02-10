@@ -35,14 +35,14 @@ class Post(models.Model):
     author = models.ForeignKey(User)
     views = models.PositiveIntegerField(default=0)
 
-    def save(self, *args, **kwargs):#显示阅读量
-        if not self.excerpt:
-            md = markdown.Markdown(extensions=[
-                                   'markdown.extensions.extra',
-                                   'markdown.extensions.codehilite',
-                 ])
-            self.excerpt = strip_tags(md.convert(self.body))[:54]#选择前54个字符
-        super(Post, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):#显示阅读量
+    #     if not self.excerpt:
+    #         md = markdown.Markdown(extensions=[
+    #                                'markdown.extensions.extra',
+    #                                'markdown.extensions.codehilite',
+    #              ])
+    #         self.excerpt = strip_tags(md.convert(self.body))[:54]#选择前54个字符
+    #     super(Post, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
