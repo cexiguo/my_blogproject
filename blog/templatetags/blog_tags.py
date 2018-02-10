@@ -13,5 +13,5 @@ def archives():
     return Post.objects.dates('create_time','month',order='DESC')
 
 @register.simple_tag
-def get_categorys():
+def get_categories():
     return Category.objects.all()
