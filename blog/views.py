@@ -24,7 +24,7 @@ class IndexView(ListView):
       context.update(pagination_data)
       return context
 
-    def pagination_data(self, paginator, page, is_paginated)
+    def pagination_data(self, paginator, page, is_paginated):
         if not is_paginated:
             return {}
         left = []
