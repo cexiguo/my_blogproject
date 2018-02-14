@@ -23,10 +23,11 @@ class IndexView(ListView):
       pagination_data = self.pagination_data(paginator, page, is_paginated)
       context.update(pagination_data)
       return context
-   def pagination_data(self,paginator,page,is_paginated):
+
+    def pagination_data(self, paginator, page, is_paginated)
         if not is_paginated:
             return {}
-        left  =  []
+        left = []
         right = []
         right _has_more = False
         left_has_more = False
@@ -36,8 +37,8 @@ class IndexView(ListView):
         total_pages = paginator.num_pages
         page_range = paginator.page_range
 
-        if page_number==1:
-         right = page_range[page_number:page_number+2]
+        if page_number == 1:
+         right = page_range[page_number:page_number + 2]
           if right[-1] < total_pages - 1:
                 right_has_more = True
 
