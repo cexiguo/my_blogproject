@@ -74,23 +74,25 @@ class IndexView(ListView):
             'last': last,
         }
         return data
+
         # def index(request):
         #     post_list = Post.objects.all().order_by('-create_time')
         #     return render(request, 'blog/index.html', context={'post_list': post_list})
 
-        # def detail(request, pk):
-        #     post = get_object_or_404(Post, pk=pk)
-        #     post.increase_views()
-        #     post.body = markdown.markdown(post.body,
-        #                                   extensions=[
-        #                                       'markdown.extensions.extra',
-        #                                       'markdown.extensions.codehilite',
-        #                                       'markdown.extensions.toc',
-        #                                   ])
-        #     form = CommentForm()
-        #     comment_list = post.comment_set.all()
-        #     context = {'post': post, 'form': form, 'comment_list': comment_list}
-        #     return render(request, 'blog/detail.html', context=context)
+    def detail(request, pk):
+        post = get_object_or_404(Post, pk=pk)
+        post.increase_views()
+        post.body = markdown.markdown(post.body,
+                                      extensions=[
+                                          'markdown.extensions.extra',
+                                          'markdown.extensions.codehilite',
+                                          'markdown.extensions.toc',
+                                      ])
+        form = CommentForm()
+        comment_list = post.comment_set.all()
+        context = {'post': post, 'form': form,
+                   'comment_list': comment_list}
+        return render(request, 'blog/detail.html', context=context)
 
 
 class PostDetailView(DetailView):
