@@ -29,8 +29,8 @@ class IndexView(ListView):
             return {}
         left = []
         right = []
-        right _has_more = False
         left_has_more = False
+        right_has_more = False
         first = False
         last = False
         page_number = page.number
