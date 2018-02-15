@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 
-{% load staticfiles %}
+<!-- {% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Black &amp; White</title>
 
-    <!-- meta -->
+    meta
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- css -->
+    css
     <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/pace.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/custom.css' %}">
 
-    <!-- js -->
+    js
     <script src="{% static 'blog/js/jquery-2.1.3.min.js' %}"></script>
     <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'blog/js/pace.min.js' %}"></script>
@@ -29,7 +29,7 @@
                 <div class="logo">
                     <h1><a href="index.html"><b>Black</b> &amp; White</a></h1>
                 </div>
-            </div><!-- col-md-4 -->
+            </div>col-md-4
             <div class="col-md-8 col-sm-7 col-xs-4">
                 <nav class="main-nav" role="navigation">
                     <div class="navbar-header">
@@ -45,7 +45,7 @@
                             <li class="cl-effect-11"><a href="about.html" data-hover="关于">关于</a></li>
                             <li class="cl-effect-11"><a href="contact.html" data-hover="联系">联系</a></li>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
+                    </div>/.navbar-collapse
                 </nav>
                 <div id="header-search-box">
                     <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
@@ -56,7 +56,7 @@
                         </form>
                     </div>
                 </div>
-            </div><!-- col-md-8 -->
+            </div>col-md-8
         </div>
     </header>
 </div>
@@ -66,7 +66,7 @@
 <div class="content-body">
     <div class="container">
         <div class="row">
-            <main class="col-md-8">
+            <main class="col-md-8"> -->
                 {% block main %}
                 {% for post in post_list %}
                 <article class="post post-{{ post.pk }}">
@@ -112,8 +112,12 @@
             {% endif %}
             {% endcomment %}
 
+          {% comment %}
+          完善分页导航
+          {% endcomment %}
           {% if is_paginated %}
                 <div class="pagination">
+                <ul>
                   {% if first %}
                     <a href="?page=1">1</a>
                   {% endif %}
@@ -137,23 +141,11 @@
                   {% if last %}
                     <a href="?page={{ paginator.num_pages }}">{{ paginator.num_pages }}</a>
                   {% endif %}
+                  </ul>
                 </div>
                 {% endif %}
-                 <div class="pagination">
-                    <ul>
-                        <li><a href="">1</a></li>
-                        <li><a href="">...</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li class="current"><a href="">6</a></li>
-                        <li><a href="">7</a></li>
-                        <li><a href="">8</a></li>
-                        <li><a href="">...</a></li>
-                        <li><a href="">11</a></li>
-                    </ul>
-                </div>
             {% endblock main %}
-            </main>
+            <!-- </main>
             <aside class="col-md-4">
                 <div class="widget widget-recent-posts">
                     <h3 class="widget-title">最新文章</h3>
@@ -238,35 +230,35 @@
                     <a href=""><span class="ion-social-rss-outline"></span> RSS 订阅</a>
                 </div>
             </aside>
-        </div>
-    </div>
-</div>
-<footer id="site-footer">
-    <div class="container">
-        <div class="row">
+                    </div>
+                </div>
+            </div>
+            <footer id="site-footer">
+                <div class="container">
+                    <div class="row">
             <div class="col-md-12">
                 <p class="copyright">&copy 2018 Pig_G的博客
                     - 由<a href="http://zmrenwu.com/" title="网页模板" target="_blank">追梦人物的博客</a>修改
                 </p>
             </div>
-        </div>
-    </div>
-</footer>
+                    </div>
+                </div>
+            </footer>
 
-<!-- Mobile Menu -->
-<div class="overlay overlay-hugeinc">
-    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
-    <nav>
-        <ul>
+            Mobile Menu
+            <div class="overlay overlay-hugeinc">
+                <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+                <nav>
+                    <ul>
             <li><a href="index.html">首页</a></li>
             <li><a href="full-width.html">博客</a></li>
             <li><a href="about.html">关于</a></li>
             <li><a href="contact.html">联系</a></li>
-        </ul>
-    </nav>
-</div>
+                    </ul>
+                </nav>
+            </div>
 
-<script src="js/script.js"></script>
+            <script src="js/script.js"></script>
 
-</body>
-</html>
+            </body>
+            </html> -->
